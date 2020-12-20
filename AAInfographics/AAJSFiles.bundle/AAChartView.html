@@ -70,7 +70,7 @@
         }
         
         function configureChartTouchEvent(aaPlotOptions) {
-            var mouseOverFunc = function() {
+            var clickedFunc = function() {
                 var message = {
                     name: this.series.name,
                     y: this.y,
@@ -83,11 +83,11 @@
             };
             
             if (aaPlotOptions.series.point) {// set property directlly for series point
-                aaPlotOptions.series.point.events.mouseOver = mouseOverFunc;
+                aaPlotOptions.series.point.events.click = clickedFunc;
             } else {// creat a new series point object instance
                 var seriesPoint = {
                     events:{
-                        mouseOver: mouseOverFunc,
+                        click: clickedFunc,
                     }
                 };
                 aaPlotOptions.series.point = seriesPoint;
